@@ -75,12 +75,12 @@ def getData():
     root.after(250, getData)
 
 def graphic():
-    ax.plot(np.arange(1,len(valuesA1)+1,1), valuesA1, color = "white", linewidth = 1)
-    
+    ax.plot(np.arange(1,11,1), valuesA1, color = "black", linewidth = 1)
+
 
 root = Tk()
 root.title("Parcial Final Herramientas")
-root.geometry ("500x1000")
+root.geometry ("500x300")
 print(os.getcwd().replace('\\','/')+'/Parcial Final/key.json')
 cred = credentials.Certificate(os.getcwd().replace('\\','/')+'/Parcial Final/key.json')
 
