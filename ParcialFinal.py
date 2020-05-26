@@ -18,7 +18,8 @@ a_A1 = board.get_pin('a:1:i')
 a_A2 = board.get_pin('a:2:i')
 
 def onReturnKey(event):
-    ADC_A1label['text'] = "hola"
+    if(v.get() == "i"):
+        ADC_A1label['text'] = "hola"
 
 def getData():
     global adc_dataA1, adc_dataA2
@@ -46,7 +47,8 @@ ADC_A2label = Label(root, text = "ADC A2")
 ADC_A2label.place(x=70,y=40)
 ADC_A2 = Label(root, text = "0")
 ADC_A2.place(x=70,y=10)
-entry = Entry(root)
+v = StringVar()
+entry = Entry(root, textvariable = v)
 entry.place(x = 10, y = 60)
 entry.bind('<Return>',onReturnKey)
 
