@@ -75,16 +75,12 @@ def getData():
     root.after(250, getData)
 
 def graphic():
-    fig = Figure(figsize=(5, 2), dpi= 100, facecolor= "white")
-    fig.add_subplot(111).plot(np.arange(1,len(valuesA1)+1,1), valuesA1, color = "white", linewidth = 1)
-    canvas = FigureCanvasTkAgg(fig, master=graphicFrame)  # A tk.DrawingArea.
-    canvas.draw()
-    canvas.get_tk_widget().pack(side = TOP, fill= BOTH, expand=1)
+    ax.plot(np.arange(1,len(valuesA1)+1,1), valuesA1, color = "white", linewidth = 1)
     
 
 root = Tk()
 root.title("Parcial Final Herramientas")
-root.geometry ("500x300")
+root.geometry ("500x1000")
 print(os.getcwd().replace('\\','/')+'/Parcial Final/key.json')
 cred = credentials.Certificate(os.getcwd().replace('\\','/')+'/Parcial Final/key.json')
 
@@ -107,6 +103,13 @@ entry.bind('<Return>',onReturnKey)
 #Graphic
 graphicFrame = Frame(root, width = 500, height = 200, bg = "white")
 graphicFrame.place(y = 100)
+
+fig = Figure(figsize=(5, 2), dpi= 100, facecolor= "white")
+ax = fig.add_subplot(111)
+
+canvas = FigureCanvasTkAgg(fig, master=graphicFrame)  # A tk.DrawingArea.
+canvas.draw()
+canvas.get_tk_widget().pack(side = TOP, fill= BOTH, expand=1)
 #Logus
 b=Label(root,text="")
 img = Image.open("C:/Users/luisr/Desktop/Herramientas/logousa.png")
